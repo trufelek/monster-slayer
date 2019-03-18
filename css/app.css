@@ -1,0 +1,122 @@
+body {
+    background: linear-gradient(45deg, #e66465, #9198e5);
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+    font-size: 21px;
+    margin: 0;
+    padding: 50px;
+    height: 100vh;
+}
+
+#game {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-family: 'Creepster', cursive;
+    font-size: 100px;
+    font-style: italic;
+    color: lightgreen;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+.player progress {
+    margin-bottom: 20px;
+}
+
+.healthbar {
+    background-color: #eee;
+    height: 30px;
+    margin: 0 auto 40px;
+    width: 50%;
+}
+
+.health {
+    background-color: #91ec89;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 80%;
+    transition: width 500ms;
+}
+
+.panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.logs {
+    height: 200px;
+    overflow: hidden;
+}
+
+.logs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.logs ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+.logs ul li.player-log {
+    background: #e279bb;
+}
+
+.logs ul li.monster-log {
+    background: #32f3f5;
+}
+
+button {
+    background: transparent;
+    border: 2px solid #32f3f5;
+    color: #32f3f5;
+    cursor: pointer;
+    font-family: 'VT323', monospace;
+    font-size: 21px;
+    margin: 10px;
+    outline: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    color: #91ec89;
+    border-color: #91ec89;
+}
+
+#new-game {
+    color: #91ec89;
+    border-color: #91ec89;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 60px;
+    }
+}

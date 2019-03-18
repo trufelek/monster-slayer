@@ -4,31 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Monster Slayer</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Creepster|VT323" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
 </head>
 <body>
     <div id="game">
+        <h1>MONSTER FIGHT</h1>
         <div class="player">
-            <progress max="100" value="100"></progress>
+            <div class="healthbar">
+                <div class="health" :style="{width: playerHealth + '%'}">
+                    {{ playerHealth }}
+                </div>
+            </div>
             <img src="img/crab.png" alt="Player 1" title="Player 1">
         </div>
         <div class="player">
-            <progress max="100" value="100"></progress>
+            <div class="healthbar">
+                <div class="health" :style="{width: monsterHealth + '%'}">
+                    {{ monsterHealth }}
+                </div>
+            </div>
             <img src="img/lizard.png" alt="Player 2" title="Player 2">
         </div>
 
-        <div class="controls panel">
-            <button>Attack</button>
-            <button>Special attack</button>
-            <button>Heal</button>
-            <button>Retreat</button>
+        <div v-if="!gameIsRunning" class="controls panel">
+            <button id="new-game" @click="startGame">Fight!</button>
+        </div>
+        <div v-else class="controls panel">
+            <button id="attack" @click="attack">Attack</button>
+            <button id="special-attack" @click="specialAttack">Special attack</button>
+            <button id="heal" @click="heal">Heal</button>
+            <button id="retreat" @click="retreat">Retreat</button>
         </div>
 
-        <ul class="log panel">
-            <li>No game log</li>
-        </ul>
+        <div class="logs panel">
+            <ul>
+                <li v-if="logs.length > 0" v-for="log in logs" :class="{'player-log': log.isPlayer, 'monster-log': !log.isPlayer}">{{ log.text }}</li>
+            </ul>
+        </div>
     </div>
+    <script src="js/app.js"></script>
 </body>
 </html>
